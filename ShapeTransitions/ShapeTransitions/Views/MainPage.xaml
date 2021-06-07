@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    x:Class="ShapeTransitions.Views.MainPage"
+    ios:Page.UseSafeArea="True"
+    Visual="Material"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        RowDefinitions="Auto, *"
+        Padding="0"
+        Margin="0"
+        RowSpacing="0">
+        <StackLayout
+            x:Name="toolbar"
+            Grid.Row="0"
+            HeightRequest="60"
+            BackgroundColor="#2296F3"
+            Padding="15, 0">
+            <Label
+                VerticalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="White"
+                Text="Main Page" />
+        </StackLayout>
+        <StackLayout
+            x:Name="content"
+            Grid.Row="1"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Spacing="15">
+            <Label
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"
+                TextColor="Black"
+                Text="Left to right arrow like transition animation" />
+            <Button
+                HorizontalOptions="FillAndExpand"
+                Margin="40, 0"
+                BackgroundColor="DeepSkyBlue"
+                Text="Navigate To Page 1"
+                Clicked="NavigateToPage1_Clicked" />
+            <Label
+                Margin="0, 15, 0, 0"
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"
+                TextColor="Black"
+                Text="Bottom to top arrow like transition animation" />
+            <Button
+                HorizontalOptions="FillAndExpand"
+                Margin="40, 0"
+                BackgroundColor="DeepSkyBlue"
+                Text="Navigate To Page 2" 
+                Clicked="NavigateToPage2_Clicked" />
+            <Label
+                Margin="0, 15, 0, 0"
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"
+                TextColor="Black"
+                Text="Left and right panes transition animation" />
+            <Button
+                HorizontalOptions="FillAndExpand"
+                Margin="40, 0"
+                BackgroundColor="DeepSkyBlue"
+                Text="Navigate To Page 3" 
+                Clicked="NavigateToPage3_Clicked" />
+            <Label
+                Margin="0, 15, 0, 0"
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"
+                TextColor="Black"
+                Text="A wild pokemon has appeared!" />
+            <Button
+                HorizontalOptions="FillAndExpand"
+                Margin="40, 0"
+                BackgroundColor="DeepSkyBlue"
+                Text="Click here to see who is!" 
+                Clicked="ViewPokemon_Clicked" />
+        </StackLayout>
+        <Path
+            x:Name="leftArrowtransitionAnimation"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Data="M 0, 165 L 405,330 0, 495Z"
+            Stroke="Red"
+            Fill="Red"
+            TranslationX="-500"
+            IsVisible="False" />
+        <Grid
+            x:Name="upArrowTransitionAnimation"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            TranslationY="700"
+            IsVisible="False">
+            <Path
+                Data="M 206,0 L 412,600 0,600Z"
+                Stroke="Blue"
+                Fill="Blue" />
+            <Path
+                Data="M 206,400 L 309,630 103,630Z"
+                Stroke="Black"
+                Fill="LightGray"/>
+            <Path
+                Data="M 206,425 L 283.25,650 128.75,650Z"
+                Stroke="Black"
+                Fill="White" />
+        </Grid>
+        <Path
+            x:Name="leftPaneTransitionAnimation"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Data="M 0,0 L 412,0 0,660Z"
+            Fill="Yellow"
+            TranslationX="-500"
+            IsVisible="False" />
+        <Path
+            x:Name="rightPaneTransitionAnimation"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Data="M 0,660 L 412,660 412,0Z"
+            Fill="Black"
+            TranslationX="500" 
+            IsVisible="False" />
+        <Grid
+            x:Name="padlockPanels"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            IsVisible="False">
+            <Path
+                x:Name="topPanel"
+                Data="M 0,0 L 412,0 412,330 0,330Z"
+                Stroke="Black"                
+                Fill="Gray" />
+            <Path
+                x:Name="bottomPanel"
+                Data="M 0,330 L 412,330 412,660 0,660Z"
+                Stroke="Black"
+                Fill="DarkGray" />
+            <Path
+                x:Name="topPadlock"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0, -75, 0, 0"
+                Data="M77.5 0C34.6979 0 0 34.6979 0 77.5H155C155 34.6979 120.302 0 77.5 0Z"
+                Stroke="Black"
+                Fill="DarkGray"
+                IsVisible="False" />
+            <Path
+                x:Name="bottomPadlock"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0, 80, 0, 0"
+                Data="M77.5 78C120.302 78 155 43.3021 155 0.5H0C0 43.3021 34.6979 78 77.5 78Z"
+                Stroke="Black"
+                Fill="Gray"
+                IsVisible="False" />
+            <StackLayout
+                x:Name="fullCircle"
+                Spacing="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Rotation="90">
+                <Path
+                    Data="M77.5 0C34.6979 0 0 34.6979 0 77.5H155C155 34.6979 120.302 0 77.5 0Z"
+                    Stroke="Black"
+                    Fill="DarkGray" />
+                <Path
+                    Data="M77.5 78C120.302 78 155 43.3021 155 0.5H0C0 43.3021 34.6979 78 77.5 78Z"
+                    Stroke="Black"
+                    Fill="Gray" />
+            </StackLayout>
+        </Grid>
+        <Grid
+            x:Name="pokemonTransitionAnimation"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            BackgroundColor="#460302"
+            IsVisible="False"
+            TranslationX="-500">
+            <Line
+                x:Name="line1"
+                X1="0"
+                Y1="10"
+                X2="188"
+                Y2="10"
+                Stroke="#B24D4D" />
+            <Line
+                x:Name="line2"
+                X1="0"
+                Y1="30"
+                X2="233"
+                Y2="30"
+                Stroke="#B55151" />
+            <Line
+                x:Name="line3"
+                X1="0"
+                Y1="55"
+                X2="247"
+                Y2="55"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line4"
+                X1="0"
+                Y1="56"
+                X2="247"
+                Y2="56"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line5"
+                X1="0"
+                Y1="57"
+                X2="247"
+                Y2="57"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line6"
+                X1="0"
+                Y1="68"
+                X2="188"
+                Y2="68"
+                Stroke="#B24D4D" />
+            <Line
+                x:Name="line7"
+                X1="0"
+                Y1="119"
+                X2="233"
+                Y2="119"
+                Stroke="#B55151" />
+            <Line
+                x:Name="line8"
+                X1="0"
+                Y1="142"
+                X2="263"
+                Y2="142"
+                Stroke="#B24D4D" />
+            <Line
+                x:Name="line9"
+                X1="0"
+                Y1="178"
+                X2="153"
+                Y2="178"
+                Stroke="#B55151" />
+            <Line
+                x:Name="line10"
+                X1="0"
+                Y1="203"
+                X2="268"
+                Y2="203"
+                Stroke="#B55151" />
+            <Line
+                x:Name="line11"
+                X1="0"
+                Y1="266"
+                X2="107"
+                Y2="266"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line12"
+                X1="0"
+                Y1="267"
+                X2="107"
+                Y2="267"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line13"
+                X1="0"
+                Y1="268"
+                X2="107"
+                Y2="268"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line14"
+                X1="0"
+                Y1="312"
+                X2="153"
+                Y2="312"
+                Stroke="#B55151" />
+            <Line
+                x:Name="line15"
+                X1="0"
+                Y1="339"
+                X2="233"
+                Y2="339"
+                Stroke="#B24D4D" />
+            <Line
+                x:Name="line16"
+                X1="0"
+                Y1="359"
+                X2="183"
+                Y2="359"
+                Stroke="#B24D4D" />
+            <Line
+                x:Name="line17"
+                X1="0"
+                Y1="382"
+                X2="313"
+                Y2="382"
+                Stroke="#B55151" />
+            <Line
+                x:Name="line18"
+                X1="0"
+                Y1="432"
+                X2="219"
+                Y2="432"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line19"
+                X1="0"
+                Y1="433"
+                X2="219"
+                Y2="433"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line20"
+                X1="0"
+                Y1="434"
+                X2="219"
+                Y2="434"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line21"
+                X1="0"
+                Y1="464"
+                X2="183"
+                Y2="464"
+                Stroke="#B24D4D" />
+            <Line
+                x:Name="line22"
+                X1="0"
+                Y1="492"
+                X2="243"
+                Y2="492"
+                Stroke="#B55151" />
+            <Line
+                x:Name="line23"
+                X1="0"
+                Y1="534"
+                X2="153"
+                Y2="534"
+                Stroke="#B24D4D" />
+            <Line
+                x:Name="line24"
+                X1="0"
+                Y1="557"
+                X2="253"
+                Y2="557"
+                Stroke="#B24D4D" />
+            <Line
+                x:Name="line25"
+                X1="0"
+                Y1="600"
+                X2="219"
+                Y2="600"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line26"
+                X1="0"
+                Y1="601"
+                X2="219"
+                Y2="601"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line27"
+                X1="0"
+                Y1="602"
+                X2="219"
+                Y2="602"
+                Stroke="#FE8181" />
+            <Line
+                x:Name="line28"
+                X1="0"
+                Y1="620"
+                X2="153"
+                Y2="620"
+                Stroke="#B55151" />
+            <Line
+                x:Name="line29"
+                X1="0"
+                Y1="643"
+                X2="253"
+                Y2="643"
+                Stroke="#B24D4D" />
+            <Image
+                x:Name="charizard"
+                Margin="30, 0"
+                Source="pokemon.png" 
+                Aspect="AspectFit" 
+                IsVisible="False" 
+                TranslationX="-500" />
+        </Grid>
+    </Grid>
+</ContentPage>

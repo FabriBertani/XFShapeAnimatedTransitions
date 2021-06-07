@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    x:Class="ShapeTransitions.Views.LeftArrowAnimationPage"
+    ios:Page.UseSafeArea="True"
+    Visual="Material"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        RowDefinitions="Auto, *"
+        Padding="0"
+        Margin="0"
+        RowSpacing="0">
+        <StackLayout
+            x:Name="toolbar"
+            Grid.Row="0"
+            HeightRequest="60"
+            BackgroundColor="#2296F3"
+            Padding="15, 0">
+            <Label
+                VerticalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="White"
+                Text="Arrow Animation Page" />
+        </StackLayout>
+        <StackLayout
+            x:Name="content"
+            Grid.Row="1"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Spacing="15">
+            <Label
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"
+                TextColor="Black"
+                Text="Return with a right to left arrow like transition animation" />
+            <Button
+                HorizontalOptions="FillAndExpand"
+                Margin="40, 0"
+                BackgroundColor="DeepSkyBlue"
+                Text="Return with animation"
+                Clicked="ReturnButton_Clicked" />
+        </StackLayout>
+        <Path
+            x:Name="rightArrowtransitionAnimation"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Data="M 5,330 L 420,165 420,495Z"
+            Stroke="Red"
+            Fill="Red" 
+            TranslationX="500" />
+    </Grid>
+</ContentPage>

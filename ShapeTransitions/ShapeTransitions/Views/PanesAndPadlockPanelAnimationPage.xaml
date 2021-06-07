@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    x:Class="ShapeTransitions.Views.PanesAndPadlockPanelAnimationPage"
+    ios:Page.UseSafeArea="True"
+    Visual="Material"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        RowDefinitions="Auto, *"
+        Padding="0"
+        Margin="0"
+        RowSpacing="0">
+        <StackLayout
+            x:Name="toolbar"
+            Grid.Row="0"
+            HeightRequest="60"
+            BackgroundColor="#2296F3"
+            Padding="15, 0">
+            <Label
+                VerticalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                Visual="Material"
+                TextColor="White"
+                Text="Side Panes and Padlock Animation Page" />
+        </StackLayout>
+        <StackLayout
+            x:Name="content"
+            Grid.Row="1"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Spacing="15">
+            <Label
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"
+                TextColor="Black"
+                Text="Return using the padlock animation!" />
+            <Button
+                HorizontalOptions="FillAndExpand"
+                Margin="40, 0"
+                BackgroundColor="DeepSkyBlue"
+                Text="Return To Main Page"
+                Clicked="ReturnButton_Clicked" />
+        </StackLayout>
+        <Grid
+            x:Name="padlockPanels"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            IsVisible="False">
+            <Path
+                x:Name="topPanel"
+                Data="M 0,0 L 412,0 412,330 0,330Z"
+                Stroke="Black"                
+                Fill="Gray"
+                TranslationY="-500" />
+            <Path
+                x:Name="bottomPanel"
+                Data="M 0,330 L 412,330 412,660 0,660Z"
+                Stroke="Black"
+                Fill="DarkGray"
+                TranslationY="500" />
+            <Path
+                x:Name="topPadlock"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0, -75, 0, 0"
+                Data="M77.5 0C34.6979 0 0 34.6979 0 77.5H155C155 34.6979 120.302 0 77.5 0Z"
+                Stroke="Black"
+                Fill="DarkGray" 
+                TranslationY="-500" />
+            <Path
+                x:Name="bottomPadlock"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0, 80, 0, 0"
+                Data="M77.5 78C120.302 78 155 43.3021 155 0.5H0C0 43.3021 34.6979 78 77.5 78Z"
+                Stroke="Black"
+                Fill="Gray"
+                TranslationY="500" />
+            <StackLayout
+                x:Name="fullCircle"
+                Spacing="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="False">
+                <Path
+                    Data="M77.5 0C34.6979 0 0 34.6979 0 77.5H155C155 34.6979 120.302 0 77.5 0Z"
+                    Stroke="Black"
+                    Fill="DarkGray" />
+                <Path
+                    Data="M77.5 78C120.302 78 155 43.3021 155 0.5H0C0 43.3021 34.6979 78 77.5 78Z"
+                    Stroke="Black"
+                    Fill="Gray" />
+            </StackLayout>                
+        </Grid>
+        <Path
+            x:Name="leftPaneTransitionAnimation"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Data="M 0,0 L 412,0 0,660Z"
+            Fill="Yellow" />
+        <Path
+            x:Name="rightPaneTransitionAnimation"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Data="M 0,660 L 412,660 412,0Z"
+            Fill="Black" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    x:Class="ShapeTransitions.Views.UpArrowAndCircleTransitionPage"
+    ios:Page.UseSafeArea="True"
+    Visual="Material"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        RowDefinitions="Auto, *"
+        Padding="0"
+        Margin="0"
+        RowSpacing="0">
+        <StackLayout
+            x:Name="toolbar"
+            Grid.Row="0"
+            HeightRequest="60"
+            BackgroundColor="#2296F3"
+            Padding="15, 0">
+            <Label
+                VerticalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                Visual="Material"
+                TextColor="White"
+                Text="Up Arrow and Circles Animation Page" />
+        </StackLayout>
+        <StackLayout
+            x:Name="content"
+            Grid.Row="1"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Spacing="15">
+            <Label
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"
+                TextColor="Black"
+                Text="Press the button to see a cool animation!" />
+            <Button
+                HorizontalOptions="FillAndExpand"
+                Margin="40, 0"
+                BackgroundColor="DeepSkyBlue"
+                Text="Return To Main Page"
+                Clicked="ReturnButton_Clicked" />
+        </StackLayout>
+        <Ellipse
+            x:Name="circleIn"
+            Grid.Row="0"
+            Grid.RowSpan="2"            
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            TranslationX="75"
+            TranslationY="75"
+            HeightRequest="150"
+            WidthRequest="150"
+            Fill="Blue"
+            Scale="0" 
+            IsVisible="False" />
+        <Ellipse
+            x:Name="circleOut"
+            Grid.Row="0"
+            Grid.RowSpan="2"            
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            TranslationX="-75"
+            TranslationY="-75"
+            HeightRequest="150"
+            WidthRequest="150"
+            Fill="Blue"
+            Scale="15" 
+            IsVisible="False" />
+    </Grid>
+</ContentPage>

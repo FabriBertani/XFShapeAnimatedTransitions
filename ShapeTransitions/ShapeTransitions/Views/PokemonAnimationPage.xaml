@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    x:Class="ShapeTransitions.Views.PokemonAnimationPage"
+    ios:Page.UseSafeArea="True"
+    Visual="Material"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        RowDefinitions="Auto, *"
+        Padding="0"
+        Margin="0"
+        RowSpacing="0">
+        <StackLayout
+            x:Name="toolbar"
+            Grid.Row="0"
+            HeightRequest="60"
+            BackgroundColor="#2296F3"
+            Padding="15, 0">
+            <Label
+                VerticalOptions="FillAndExpand"
+                VerticalTextAlignment="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                Visual="Material"
+                TextColor="White"
+                Text="Pokemon Animation Page" />
+        </StackLayout>
+        <StackLayout
+            x:Name="content"
+            Grid.Row="1"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Spacing="15">
+            <Image
+                Source="pokeball.gif"
+                IsAnimationPlaying="True" />
+            <Label
+                x:Name="thankYouLabel"
+                Margin="0, 30"
+                HorizontalTextAlignment="Center"
+                FontSize="Large"
+                TextColor="Black"
+                Text="Thank you !" />
+            <Button
+                Margin="0, 30"
+                BackgroundColor="White"
+                FontSize="Small"
+                FontAttributes="Bold"
+                TextColor="Red"
+                Text="Return Home!"
+                Clicked="ReturnHome_Clicked" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
